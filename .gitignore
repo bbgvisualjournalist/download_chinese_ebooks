@@ -25,3 +25,13 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+# exclude exported ebook folders
+book*
+
+# exclude tools for validating and compressing final epubs
+ePub Zip*
+epubcheck-3.0.1
+
+#exclude rendered ebooks
+*.epub
