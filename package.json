@@ -1,0 +1,18 @@
+{
+  "name": "scrape_book",
+  "version": "1.0.0",
+  "description": "A utility for scraping a book created with the spreadsheet_to_ebook app.",
+  "main": "index.js",
+  "author": "Brian Williamson",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "jsdom": "^0.11.1",
+    "request": "^2.39.0",
+    "cheerio": "0.0.3",
+    "underscore": "1.8.2",
+    "tabletop": "^1.3.5"
+  }
+}
