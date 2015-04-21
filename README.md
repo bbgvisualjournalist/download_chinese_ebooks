@@ -5,12 +5,9 @@ Simple node app for downloading files and assets used to create epubs. Works wit
 After you set up a server for [the content](https://github.com/bbgvisualjournalist/spreadsheet_to_ebook), this application will enable you to download:
 * The fonts (as defined in the fonts_array)
 * Stylesheets (stylesheets_array)
-* The images (images_array)
 * The required epub meta-inf and mimetype files.
 * The main XHTML contents of the ebooks (mainFiles_array)
-* The circumvention tool chapters (toolFiles_array)
-
-It will also take a screenshot of the comic book explanation for each tool and book cover in the corresponding language and download a .png file.
+* The images (defined in the spreadsheet)
 
 ##Running the application
 1. Download the package. 
