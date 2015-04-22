@@ -8,7 +8,7 @@ var url = require("url");
 
 //base domain
 //var domain = "http://visualjournali.st";
-var domain = "http://184.73.203.85:8080"
+var domain = "http://localhost:8080"
 var books = [];
 
 
