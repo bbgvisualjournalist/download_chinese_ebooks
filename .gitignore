@@ -35,3 +35,6 @@ epubcheck-3.0.1
 
 #exclude rendered ebooks
 *.epub
+
+# Ignore Webstorm folder
+/.idea/

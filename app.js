@@ -5,12 +5,14 @@ var cheerio = require('cheerio');
 
 var fs = require("fs");
 var url = require("url");
+var config = require('./config');
+
 
 //base domain
-//var domain = "http://visualjournali.st";
-var domain = "http://localhost:8080"
-var books = [];
+var domain = config.domain;
+//var domain = "http://localhost:8080"
 
+var books = [];
 
 request(domain, function (error, response, html) {
 	if (!error && response.statusCode == 200) {
@@ -60,18 +62,18 @@ request(domain, function (error, response, html) {
 		var fileNumber = 0;
 
 		function loop(){
-			if (counter<books.length&&fileNumber<files_array.length){
+			if (counter < books.length&&fileNumber<files_array.length){
 				var source=domain + '/stylesheets/' + files_array[fileNumber];
 				var output=books[counter] + '/stylesheets/' + files_array[fileNumber];
 				console.log('Saving ' + files_array[fileNumber] +' files in '+ books[counter]);
 				download(source, output, function(){loop();});
 
 				counter++;
-			} else if (fileNumber<files_array.length){
-				counter=0;
+			} else if (fileNumber < files_array.length){
+				counter = 0;
 				fileNumber++;
 				loop();
-			} else{
+			} else {
 				console.log(' ')
 			}
 		}
@@ -94,21 +96,21 @@ request(domain, function (error, response, html) {
 
 				if (bookNumberChapter){
 						folder = '';
-						inputFolder = 'book/'+book+'/'
-						console.log('-----------FOLDER: '+folder);
+						inputFolder = 'book/' + book + '/'
+						console.log('-----------FOLDER: ' + folder);
 				}
 
-				if (book<books.length&&fileNumber<loop_array.length){
+				if (book < books.length && fileNumber < loop_array.length){
 					var source=domain + '/' + inputFolder + folder + loop_array[fileNumber] + "?mode=export";
 					console.log('Downloadingx: '+ loop_array[fileNumber])
 					console.log('From: '+ source);
 					console.log(' ')
-					var output=books[book]+'/'+folder+loop_array[fileNumber];
+					var output=books[book] + '/' + folder + loop_array[fileNumber];
 					//console.log('Saving ' + loop_array[fileNumber] +' in ' + books[book] + folder);
 					download(source, output, function(){looper();});
 
 					book++;
-				} else if (fileNumber<loop_array.length){
+				} else if (fileNumber < loop_array.length){
 					book=0;
 					fileNumber++;
 					looper();
@@ -118,9 +120,10 @@ request(domain, function (error, response, html) {
 			}
 			looper();
 		}
-		var fonts_array = ['AdobeFanHeitiStd-Bold.otf', 'AdobeHeitiStd-Regular.otf','ヒラギノ明朝ProW3.otf', 'ヒラギノ明朝ProW6.otf'];
-		//var fonts_array = ['AdobeFanHeitiStd-Bold.otf', 'AdobeHeitiStd-Regular.otf'];
-		//callLoop(fonts_array, 'fonts/', false);
+		var fonts_array = config.fonts;
+		if (config.downloadFonts){
+			callLoop(fonts_array, 'fonts/', false);
+		}
 
 		var mainFiles_array = ['backmatter.xhtml', 'bodymatter.xhtml', 'content.opf', 'cover.xhtml', 'introduction.xhtml', 'titlepage.xhtml', 'toc.xhtml', 'toc.ncx'];
 		callLoop(mainFiles_array, '', true);
@@ -132,8 +135,8 @@ request(domain, function (error, response, html) {
 
 		//Manually creating mimetype file (instead of scraping) because scraping added a \n that broke validation.
 		function addMime(){
-			for (var s=0; s<books.length;s++){
-				var targetMime = "book"+s+'/mimetype'
+			for (var s = 0; s < books.length; s++){
+				var targetMime = "book" + s + '/mimetype'
 				fs.writeFile(targetMime, "application/epub+zip", function(err) {
 					if(err) {
 						return console.log(err);
@@ -142,8 +145,6 @@ request(domain, function (error, response, html) {
 			}
 		}
 		addMime();
-		//var mime_array = ['mimetype'];
-		//callLoop(mime_array, '', false);
 
 
 
@@ -151,7 +152,7 @@ request(domain, function (error, response, html) {
 		//LOADING PHOTOS BASED ON THE SPREADSHEET================================================================================
 
 		var Tabletop = require('tabletop');
-		var testURL = 'https://docs.google.com/spreadsheets/d/1dXbUkXlGb8GyVMdKpuJB__82MAI6-VWqhzcvq2A3rYY/pubhtml';
+		var testURL = config.spreadsheet;
 
 		var myData;
 		function onLoad(data, tabletop) {
