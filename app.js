@@ -14,12 +14,13 @@ var domain = config.domain;
 
 var books = [];
 
-request(domain, function (error, response, html) {
+request(domain, function(error, response, html) {
 	if (!error && response.statusCode == 200) {
 		var $ = cheerio.load(html);
 
-		$('ul').each(function(n, element){
+		$('ul').each(function(n, element) {
 			var bookFolder = $(this).attr('id');
+			//console.log('*********'+ bookFolder)
 			var imageFolder = bookFolder + "/images"
 			var stylesheetsFolder = bookFolder + "/stylesheets"
 			var fontsFolder = bookFolder + "/fonts"
@@ -35,8 +36,7 @@ request(domain, function (error, response, html) {
 			//Add bookfolder to an array so that you can add files to it.
 			books.push(bookFolder);
 		});
-		console.log(books);
-
+		//console.log(books);
 
 		/*
 		//optional function for splitting the filename off of a url
@@ -46,13 +46,12 @@ request(domain, function (error, response, html) {
 		*/
 
 
-
 		//ADD STYLESHEETS================================================================================
 		console.log(' ')
 		var files_array = ['stylesheet.css', 'page_styles.css'];
 
-		var download = function(uri, filename, callback){
-			request.head(uri, function(err, res, body){
+		var download = function(uri, filename, callback) {
+			request.head(uri, function(err, res, body) {
 				var r = request(uri).pipe(fs.createWriteStream(filename));
 				r.on('close', callback);
 			});
@@ -61,15 +60,17 @@ request(domain, function (error, response, html) {
 		var counter = 0;
 		var fileNumber = 0;
 
-		function loop(){
-			if (counter < books.length&&fileNumber<files_array.length){
-				var source=domain + '/stylesheets/' + files_array[fileNumber];
-				var output=books[counter] + '/stylesheets/' + files_array[fileNumber];
-				console.log('Saving ' + files_array[fileNumber] +' files in '+ books[counter]);
-				download(source, output, function(){loop();});
+		function loop() {
+			if (counter < books.length && fileNumber < files_array.length) {
+				var source = domain + '/stylesheets/' + files_array[fileNumber];
+				var output = books[counter] + '/stylesheets/' + files_array[fileNumber];
+				//console.log('Saving ' + files_array[fileNumber] +' files in '+ books[counter]);
+				download(source, output, function() {
+					loop();
+				});
 
 				counter++;
-			} else if (fileNumber < files_array.length){
+			} else if (fileNumber < files_array.length) {
 				counter = 0;
 				fileNumber++;
 				loop();
@@ -80,48 +81,47 @@ request(domain, function (error, response, html) {
 		loop();
 
 
-
-
-
 		//Generalizing a function for downloading files.
-		function callLoop(arrayInput, folderInput, bookNumberChapter){
+		function callLoop(arrayInput, folderInput, bookNumberChapter) {
 			var loop_array = arrayInput;
-			var folder = folderInput;//optional variable for subdirectories e.g. 'fonts/'
+			var folder = folderInput; //optional variable for subdirectories e.g. 'fonts/'
 
 			var book = 0;
 			var fileNumber = 0;
 			var inputFolder = '';
 
-			function looper(){
+			function looper() {
 
-				if (bookNumberChapter){
-						folder = '';
-						inputFolder = 'book/' + book + '/'
-						console.log('-----------FOLDER: ' + folder);
+				if (bookNumberChapter) {
+					folder = '';
+					inputFolder = 'book/' + book + '/';
+					//console.log('-----------FOLDER: ' + inputFolder);
 				}
 
-				if (book < books.length && fileNumber < loop_array.length){
-					var source=domain + '/' + inputFolder + folder + loop_array[fileNumber] + "?mode=export";
-					console.log('Downloadingx: '+ loop_array[fileNumber])
-					console.log('From: '+ source);
-					console.log(' ')
-					var output=books[book] + '/' + folder + loop_array[fileNumber];
-					//console.log('Saving ' + loop_array[fileNumber] +' in ' + books[book] + folder);
-					download(source, output, function(){looper();});
+				if (book < books.length && fileNumber < loop_array.length) {
+					var source = domain + '/' + inputFolder + folder + loop_array[fileNumber] + "?mode=export";
+					//console.log('Downloading: '+ loop_array[fileNumber]);
+					//console.log('From: '+ source);
+					var output = books[book] + '/' + folder + loop_array[fileNumber];
+					console.log('Saving ' + loop_array[fileNumber] +' in ' + books[book] + folder);
+					console.log(' ');
+					download(source, output, function() {
+						looper();
+					});
 
 					book++;
-				} else if (fileNumber < loop_array.length){
-					book=0;
+				} else if (fileNumber < loop_array.length) {
+					book = 0;
 					fileNumber++;
 					looper();
-				} else{
-					console.log('Done.')
+				} else {
+					console.log('Done.');
 				}
 			}
 			looper();
 		}
 		var fonts_array = config.fonts;
-		if (config.downloadFonts){
+		if (config.downloadFonts) {
 			callLoop(fonts_array, 'fonts/', false);
 		}
 
@@ -132,13 +132,12 @@ request(domain, function (error, response, html) {
 		callLoop(meta_array, 'META-INF/', false);
 
 
-
 		//Manually creating mimetype file (instead of scraping) because scraping added a \n that broke validation.
-		function addMime(){
-			for (var s = 0; s < books.length; s++){
+		function addMime() {
+			for (var s = 0; s < books.length; s++) {
 				var targetMime = "book" + s + '/mimetype'
 				fs.writeFile(targetMime, "application/epub+zip", function(err) {
-					if(err) {
+					if (err) {
 						return console.log(err);
 					}
 				});
@@ -146,19 +145,18 @@ request(domain, function (error, response, html) {
 		}
 		addMime();
 
-
-
-
 		//LOADING PHOTOS BASED ON THE SPREADSHEET================================================================================
 
 		var Tabletop = require('tabletop');
 		var testURL = config.spreadsheet;
 
 		var myData;
+
 		function onLoad(data, tabletop) {
 			console.log("loading spreadsheet");
+			console.log('-----------------------');
 			myData = data.photos.elements;
-			console.log(myData);
+			//console.log(myData);
 			loopPhotos();
 		};
 
@@ -169,27 +167,36 @@ request(domain, function (error, response, html) {
 
 		Tabletop.init(options);
 
-
 		var currentBook = 0;
 		var photo_number = 0;
 
-		function loopPhotos(){
-			if (currentBook < books.length && photo_number<myData.length){
+		function loopPhotos() {
+			//console.log('**********Running loopPhotos**********');
+			//console.log('currentBook: ' + currentBook);
+			//console.log('myData[photo_number].book: ' + myData[photo_number].book);
+			
+			if (currentBook < books.length && photo_number < myData.length) {
 
-				if(currentBook + 1 == myData[photo_number].book){
-					var source=domain + '/images/' + myData[photo_number].filename;
-					var output=books[currentBook] + '/images/' + myData[photo_number].filename;
+				if (currentBook == myData[photo_number].book) {
+					//console.log('');
+					var source = domain + '/images/' + encodeURIComponent(myData[photo_number].filename);
+					//console.log(source);
 
-					download(source, output, function(){
-						console.log('Saving ' + myData[photo_number].filename + ' files in '+ books[currentBook]);
+					var imageSubfolder = books[currentBook] + '/images/v2_' + (currentBook+1) + '/';
+					if (!fs.existsSync(imageSubfolder)) fs.mkdirSync(imageSubfolder);
+
+					var output = books[currentBook] + '/images/v2_' + (currentBook+1) + '/' + myData[photo_number].filename;
+
+					download(source, output, function() {
+						//console.log('Saving ' + myData[photo_number].filename + ' files in ' + imageSubfolder);
 						photo_number++
 						loopPhotos();
 					});
-				} else{
+				} else {
 					currentBook++;
 					loopPhotos();
 				}
-			}else{
+			} else {
 				console.log('Done saving photos')
 			}
 		}
