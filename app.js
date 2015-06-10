@@ -103,8 +103,8 @@ request(domain, function(error, response, html) {
 					//console.log('Downloading: '+ loop_array[fileNumber]);
 					//console.log('From: '+ source);
 					var output = books[book] + '/' + folder + loop_array[fileNumber];
-					console.log('Saving ' + loop_array[fileNumber] +' in ' + books[book] + folder);
-					console.log(' ');
+					//console.log('Saving ' + loop_array[fileNumber] +' in ' + books[book] + folder);
+					//console.log(' ');
 					download(source, output, function() {
 						looper();
 					});
@@ -115,7 +115,7 @@ request(domain, function(error, response, html) {
 					fileNumber++;
 					looper();
 				} else {
-					console.log('Done.');
+					console.log('Done with looper().');
 				}
 			}
 			looper();
@@ -179,13 +179,16 @@ request(domain, function(error, response, html) {
 
 				if (currentBook == myData[photo_number].book) {
 					//console.log('');
-					var source = domain + '/images/' + encodeURIComponent(myData[photo_number].filename);
-					//console.log(source);
-
-					var imageSubfolder = books[currentBook] + '/images/v2_' + (currentBook+1) + '/';
+					var subfolder='v2_' + (currentBook+1) + '/'
+					var imageSubfolder = books[currentBook] + '/images/' + subfolder;
 					if (!fs.existsSync(imageSubfolder)) fs.mkdirSync(imageSubfolder);
 
-					var output = books[currentBook] + '/images/v2_' + (currentBook+1) + '/' + myData[photo_number].filename;
+
+					var source = domain + '/images' +  subfolder + encodeURIComponent(myData[photo_number].filename);
+					//console.log(source);
+
+
+					var output = books[currentBook] + '/images/' + subfolder + myData[photo_number].filename;
 
 					download(source, output, function() {
 						//console.log('Saving ' + myData[photo_number].filename + ' files in ' + imageSubfolder);
