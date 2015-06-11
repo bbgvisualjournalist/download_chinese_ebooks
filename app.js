@@ -9,8 +9,8 @@ var config = require('./config');
 
 
 //base domain
-var domain = config.domain;
-//var domain = "http://localhost:8080"
+//var domain = config.domain;
+var domain = "http://localhost:8080"
 
 var books = [];
 
@@ -168,31 +168,32 @@ request(domain, function(error, response, html) {
 		Tabletop.init(options);
 
 		var currentBook = 0;
-		var photo_number = 0;
+		//SET PHOTO NUMBER TO 2 IN ORDER TO SKIP THE INTRO PHOTOS LISTED AT TOP OF SPREADSHEET
+		var photo_number = 2;
 
+		//BEGIN DOWNLOADING PHOTOS ================================================================================
 		function loopPhotos() {
 			//console.log('**********Running loopPhotos**********');
 			//console.log('currentBook: ' + currentBook);
 			//console.log('myData[photo_number].book: ' + myData[photo_number].book);
-			
-			if (currentBook < books.length && photo_number < myData.length) {
+
+			if (currentBook < (books.length + 1) && photo_number < myData.length) {
 
 				if (currentBook == myData[photo_number].book) {
 					//console.log('');
-					var subfolder='v2_' + (currentBook+1) + '/'
-					var imageSubfolder = books[currentBook] + '/images/' + subfolder;
+					var subfolder = 'v2_' + currentBook + '/'
+
+					//CREATE IMAGE SUBFOLDERS IF THEY DON'T EXIST
+					var imageSubfolder = books[currentBook - 1] + '/images/' + subfolder;
 					if (!fs.existsSync(imageSubfolder)) fs.mkdirSync(imageSubfolder);
 
+					var source = domain + '/images/' + subfolder + encodeURIComponent(myData[photo_number].filename);
+					var output = books[currentBook - 1] + '/images/' + subfolder + myData[photo_number].filename;
 
-					var source = domain + '/images' +  subfolder + encodeURIComponent(myData[photo_number].filename);
-					//console.log(source);
-
-
-					var output = books[currentBook] + '/images/' + subfolder + myData[photo_number].filename;
-
+					//DOWNLOAD CHAPTER PHOTOS INTO SUBFOLDERS
 					download(source, output, function() {
 						//console.log('Saving ' + myData[photo_number].filename + ' files in ' + imageSubfolder);
-						photo_number++
+						photo_number++;
 						loopPhotos();
 					});
 				} else {
@@ -200,7 +201,35 @@ request(domain, function(error, response, html) {
 					loopPhotos();
 				}
 			} else {
-				console.log('Done saving photos')
+				console.log('Looping through intro photos');
+				loopIntroPhotos();
+
+				//DOWNLOAD INTRO PHOTOS TO SUBFOLDERS
+				function loopIntroPhotos() {
+					//COUNT DOWN BOOK NUMBER FROM PREVIOUS FUNCTION
+					currentBook--;
+					//RESET PHOTO NUMBER TO FIRST ROW IN SPREADSHEET
+					photo_number = 0;
+					subfolder = 'v2_' + (currentBook + 1) + '/';
+
+					//LOOP THROUGH FIRST TWO PHOTOS IN THE SPREADSHEET AND THROUGH THE SUBFOLDERS
+					for (photo_number; photo_number < 3; photo_number++) {
+						//
+						if (photo_number < 2 && currentBook > -1) {
+							var source = domain + '/images/' + subfolder + encodeURIComponent(myData[photo_number].filename);
+							var output = books[currentBook] + '/images/' + subfolder + myData[photo_number].filename;
+							console.log(output);
+
+							download(source, output, function() {
+								//console.log('Saved an intro photo...');
+							});
+						} else if (photo_number >= 2 && currentBook > -1) {
+							loopIntroPhotos();
+						}
+					};
+				};
+
+				console.log('Done saving photos');
 			}
 		}
 
