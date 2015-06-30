@@ -169,9 +169,12 @@ request(domain, function(error, response, html) {
 
 		var currentBook = 0;
 		//SET PHOTO NUMBER TO 2 IN ORDER TO SKIP THE INTRO PHOTOS LISTED AT TOP OF SPREADSHEET
-		var photo_number = 2;
+		var photo_number = 0;
+		if (config.subfolders) {
+			photo_number = 2;
+		}
 
-		//BEGIN DOWNLOADING PHOTOS ================================================================================
+			//BEGIN DOWNLOADING PHOTOS ================================================================================
 		function loopPhotos() {
 			//console.log('**********Running loopPhotos**********');
 			//console.log('currentBook: ' + currentBook);
