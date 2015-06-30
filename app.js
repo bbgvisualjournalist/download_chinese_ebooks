@@ -9,8 +9,8 @@ var config = require('./config');
 
 
 //base domain
-//var domain = config.domain;
-var domain = "http://localhost:8080"
+var domain = config.domain;
+//var domain = "http://localhost:8080"
 
 var books = [];
 
@@ -37,13 +37,6 @@ request(domain, function(error, response, html) {
 			books.push(bookFolder);
 		});
 		//console.log(books);
-
-		/*
-		//optional function for splitting the filename off of a url
-		function getFileName(path) {
-				return path.match(/^((http[s]?|ftp):\/)?\/?([^:\/\s]+)(:([^\/]*))?((\/[\w/-]+)*\/)([\w\-\.]+[^#?\s]+)(\?([^#]*))?(#(.*))?$/i)[8];
-		}
-		*/
 
 
 		//ADD STYLESHEETS================================================================================
@@ -176,22 +169,15 @@ request(domain, function(error, response, html) {
 
 			//BEGIN DOWNLOADING PHOTOS ================================================================================
 		function loopPhotos() {
-			//console.log('**********Running loopPhotos**********');
-			//console.log('currentBook: ' + currentBook);
-			//console.log('myData[photo_number].book: ' + myData[photo_number].book);
 
 			var subfolder = '';
 			if (config.subfolders){
-				console.log('subfolders are turned on !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 				subfolder = 'v2_' + (currentBook + 1) + '/';
 			}
 
 			if (currentBook < (books.length + 1) && photo_number < myData.length) {
 
 				if (currentBook == myData[photo_number].book) {
-					//console.log('');
-					//var subfolder = 'v2_' + currentBook + '/'
-
 
 					//CREATE IMAGE SUBFOLDERS IF THEY DON'T EXIST
 					var imageSubfolder = books[currentBook - 1] + '/images/' + subfolder;
@@ -222,13 +208,6 @@ request(domain, function(error, response, html) {
 					currentBook--;
 					//RESET PHOTO NUMBER TO FIRST ROW IN SPREADSHEET
 					photo_number = 0;
-					/*
-					subfolder = '';
-					if (config.subfolders){
-						console.log('subfolders are turned on !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-						subfolder = 'v2_' + (currentBook + 1) + '/';
-					}
-					*/
 
 					//LOOP THROUGH FIRST TWO PHOTOS IN THE SPREADSHEET AND THROUGH THE SUBFOLDERS
 					for (photo_number; photo_number < 3; photo_number++) {
