@@ -177,11 +177,18 @@ request(domain, function(error, response, html) {
 			//console.log('currentBook: ' + currentBook);
 			//console.log('myData[photo_number].book: ' + myData[photo_number].book);
 
+			var subfolder = '';
+			if (config.subfolders){
+				console.log('subfolders are turned on !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+				subfolder = 'v2_' + (currentBook + 1) + '/';
+			}
+
 			if (currentBook < (books.length + 1) && photo_number < myData.length) {
 
 				if (currentBook == myData[photo_number].book) {
 					//console.log('');
-					var subfolder = 'v2_' + currentBook + '/'
+					//var subfolder = 'v2_' + currentBook + '/'
+
 
 					//CREATE IMAGE SUBFOLDERS IF THEY DON'T EXIST
 					var imageSubfolder = books[currentBook - 1] + '/images/' + subfolder;
@@ -202,7 +209,9 @@ request(domain, function(error, response, html) {
 				}
 			} else {
 				console.log('Looping through intro photos');
-				loopIntroPhotos();
+				if (config.subfolders) {
+					loopIntroPhotos();
+				}
 
 				//DOWNLOAD INTRO PHOTOS TO SUBFOLDERS
 				function loopIntroPhotos() {
@@ -210,7 +219,13 @@ request(domain, function(error, response, html) {
 					currentBook--;
 					//RESET PHOTO NUMBER TO FIRST ROW IN SPREADSHEET
 					photo_number = 0;
-					subfolder = 'v2_' + (currentBook + 1) + '/';
+					/*
+					subfolder = '';
+					if (config.subfolders){
+						console.log('subfolders are turned on !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+						subfolder = 'v2_' + (currentBook + 1) + '/';
+					}
+					*/
 
 					//LOOP THROUGH FIRST TWO PHOTOS IN THE SPREADSHEET AND THROUGH THE SUBFOLDERS
 					for (photo_number; photo_number < 3; photo_number++) {
