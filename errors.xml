@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jhove xmlns="http://hul.harvard.edu/ois/xml/ns/jhove" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="epubcheck" release="3.0.1" date="2013-05-27">
+ <date>2015-07-02T16:34:23-04:00</date>
+ <repInfo uri="book0.epub">
+  <created>2015-07-02T16:34:12Z</created>
+  <lastModified>2015-07-02T20:34:12Z</lastModified>
+  <format>application/epub+zip</format>
+  <version>3.0</version>
+  <status>Not well-formed</status>
+  <messages>
+   <message>WARN: /images/v2_1/2_9_宋永毅講話.jpg: File name contains non-ascii characters: 宋永毅講話. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_10_斯诺.jpg: File name contains non-ascii characters: 斯诺. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_11_达化斋日记.jpg: File name contains non-ascii characters: 达化斋日记. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_4_萧李廖.jpg: File name contains non-ascii characters: 萧李廖. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_13_毛澤東西菜譜.jpg: File name contains non-ascii characters: 毛澤東西菜譜. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_2_大跃进遊行.jpg: File name contains non-ascii characters: 大跃进遊行. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_1_1960周恩来写信.jpg: File name contains non-ascii characters: 周恩来写信. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_7_周恩来和陈毅煉鋼.jpg: File name contains non-ascii characters: 周恩来和陈毅煉鋼. Consider changing filename</message>
+   <message>WARN: /fonts/ヒラギノ明朝ProW6.otf: File name contains non-ascii characters: ヒラギノ明朝. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_12_逍遙津公園1.jpg: File name contains non-ascii characters: 逍遙津公園. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_14_小球藻.jpg: File name contains non-ascii characters: 小球藻. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_11_曾希聖.jpg: File name contains non-ascii characters: 曾希聖. Consider changing filename</message>
+   <message>WARN: : item (images/v2_1/0_2_墓碑封面.jpg) exists in the zip file, but is not declared in the OPF file</message>
+   <message>WARN: /images/v2_1/0_2_墓碑封面.jpg: File name contains non-ascii characters: 墓碑封面. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_7_彭德怀与群众.jpg: File name contains non-ascii characters: 彭德怀与群众. Consider changing filename</message>
+   <message>WARN: : item (images/v2_1/0_1_鄒雪平.JPG) exists in the zip file, but is not declared in the OPF file</message>
+   <message>WARN: /images/v2_1/0_1_鄒雪平.JPG: File name contains non-ascii characters: 鄒雪平. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_8_南日宣傳吃饭不要钱.jpg: File name contains non-ascii characters: 南日宣傳吃饭不要钱. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_2_杨奎松2.jpg: File name contains non-ascii characters: 杨奎松. Consider changing filename</message>
+   <message>WARN: /images/v2_1/0_3_杨继绳2.jpg: File name contains non-ascii characters: 杨继绳. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_10_邓子恢接待群众.jpg: File name contains non-ascii characters: 邓子恢接待群众. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_3_二年超英.jpg: File name contains non-ascii characters: 二年超英. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_15_大饥荒中的饥民.jpg: File name contains non-ascii characters: 大饥荒中的饥民. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_3_廖伯康.jpg: File name contains non-ascii characters: 廖伯康. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_1_周伯萍.jpg: File name contains non-ascii characters: 周伯萍. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_7_劉少奇在湖南.jpg: File name contains non-ascii characters: 劉少奇在湖南. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_5_人民日报刊登彭德怀反党集团的决议.jpg: File name contains non-ascii characters: 人民日报刊登彭德怀反党集团的决议. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_5_李成瑞.jpg: File name contains non-ascii characters: 李成瑞. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_2_李成瑞.jpg: File name contains non-ascii characters: 李成瑞. Consider changing filename</message>
+   <message>WARN: : item (images/v2_1/戴晴.jpg) exists in the zip file, but is not declared in the OPF file</message>
+   <message>WARN: /images/v2_1/戴晴.jpg: File name contains non-ascii characters: 戴晴. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_9_林彪与贺、罗.jpg: File name contains non-ascii characters: 林彪与贺、罗. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_15_滴水洞主席别墅.jpg: File name contains non-ascii characters: 滴水洞主席别墅. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_4_農村高爐群.jpg: File name contains non-ascii characters: 農村高爐群. Consider changing filename</message>
+   <message>WARN: : item (images/v2_1/v2_1_cover.jpg) exists in the zip file, but is not declared in the OPF file</message>
+   <message>WARN: /images/v2_1/4_14_滴水洞一号楼.jpg: File name contains non-ascii characters: 滴水洞一号楼. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_11_中灶飯廳.JPG: File name contains non-ascii characters: 中灶飯廳. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_1_李井泉和毛泽东在四川.jpg: File name contains non-ascii characters: 李井泉和毛泽东在四川. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_5_河南高產田分佈圖.jpg: File name contains non-ascii characters: 河南高產田分佈圖. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_2_毛等大會合影.jpg: File name contains non-ascii characters: 毛等大會合影. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_12_路宪文处理决定.jpg: File name contains non-ascii characters: 路宪文处理决定. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_10_宋庆龄炼钢.jpg: File name contains non-ascii characters: 宋庆龄炼钢. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_14_大饥荒饥民.jpg: File name contains non-ascii characters: 大饥荒饥民. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_6_公共食堂分菜.jpg: File name contains non-ascii characters: 公共食堂分菜. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_11_频频放卫星.jpg: File name contains non-ascii characters: 频频放卫星. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_13_饑民屍體.jpg: File name contains non-ascii characters: 饑民屍體. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_13_舒同.jpg: File name contains non-ascii characters: 舒同. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_8_钱学森的文章.JPG: File name contains non-ascii characters: 钱学森的文章. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_3_丁抒照片.jpg: File name contains non-ascii characters: 丁抒照片. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_4_1959廬山會議會場.jpg: File name contains non-ascii characters: 廬山會議會場. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_2_周恩來給曾希聖的親筆信.jpg: File name contains non-ascii characters: 周恩來給曾希聖的親筆信. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_5_炼钢土高炉.jpg: File name contains non-ascii characters: 炼钢土高炉. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_5_王东渝.jpg: File name contains non-ascii characters: 王东渝. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_6_李井泉陪邓於四川.jpg: File name contains non-ascii characters: 李井泉陪邓於四川. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_9_放开肚皮吃饭.jpg: File name contains non-ascii characters: 放开肚皮吃饭. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_8_1960年林彪和其他高级将领.jpg: File name contains non-ascii characters: 年林彪和其他高级将领. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_13_余德鸿談信阳事件.jpg: File name contains non-ascii characters: 余德鸿談信阳事件. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_12_鸡公山别墅.jpg: File name contains non-ascii characters: 鸡公山别墅. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_9_邓子恢.jpg: File name contains non-ascii characters: 邓子恢. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_7_钱学森1958.jpg: File name contains non-ascii characters: 钱学森. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_1_毛周在七千人大会上.jpg: File name contains non-ascii characters: 毛周在七千人大会上. Consider changing filename</message>
+   <message>WARN: /fonts/ヒラギノ明朝ProW3.otf: File name contains non-ascii characters: ヒラギノ明朝. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_12_遂平县高产景象.jpg: File name contains non-ascii characters: 遂平县高产景象. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_4_李先念.jpg: File name contains non-ascii characters: 李先念. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_11_無知的帷幕封面.jpg: File name contains non-ascii characters: 無知的帷幕封面. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_9_公共食堂.jpg: File name contains non-ascii characters: 公共食堂. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_1_三面紅旗畫.jpg: File name contains non-ascii characters: 三面紅旗畫. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_14_張平化.jpg: File name contains non-ascii characters: 張平化. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_15_王任重.jpg: File name contains non-ascii characters: 王任重. Consider changing filename</message>
+   <message>WARN: /images/v2_1/1_16_大锅饭封面.jpg: File name contains non-ascii characters: 大锅饭封面. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_8_湖南澧县父食子.jpg: File name contains non-ascii characters: 湖南澧县父食子. Consider changing filename</message>
+   <message>WARN: /images/v2_1/2_7_馮克西裝.jpg: File name contains non-ascii characters: 馮克西裝. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_6_毛對千斤田批示.jpg: File name contains non-ascii characters: 毛對千斤田批示. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_6_毛泽东在彭信上批示.jpg: File name contains non-ascii characters: 毛泽东在彭信上批示. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_4_河南省委書記吳芝圃.jpg: File name contains non-ascii characters: 河南省委書記吳芝圃. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_10_李井泉.jpg: File name contains non-ascii characters: 李井泉. Consider changing filename</message>
+   <message>WARN: /images/v2_1/3_3_闲时吃稀忙是吃干.jpg: File name contains non-ascii characters: 闲时吃稀忙是吃干. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_10_毛泽东1917年.jpg: File name contains non-ascii characters: 毛泽东年. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_12_吳芝圃.jpg: File name contains non-ascii characters: 吳芝圃. Consider changing filename</message>
+   <message>WARN: : item (images/v2_1/鲍彤.jpg) exists in the zip file, but is not declared in the OPF file</message>
+   <message>WARN: /images/v2_1/鲍彤.jpg: File name contains non-ascii characters: 鲍彤. Consider changing filename</message>
+   <message>WARN: /images/v2_1/5_3_刘少奇讲话提纲.jpg: File name contains non-ascii characters: 刘少奇讲话提纲. Consider changing filename</message>
+   <message>WARN: /images/v2_1/4_8_李成午.jpg: File name contains non-ascii characters: 李成午. Consider changing filename</message>
+   <message>ERROR: /bodymatter.xhtml(2631): The element type "section" must be terminated by the matching end-tag "&amp;lt;/section&amp;gt;".</message>
+   <message>ERROR: /bodymatter.xhtml: The element type "section" must be terminated by the matching end-tag "&amp;lt;/section&amp;gt;".</message>
+   <message>ERROR: : image file images/v2_/0_2_墓碑封面.jpg is missing</message>
+   <message>ERROR: : image file images/v2_/v2_1_cover.jpg is missing</message>
+   <message>ERROR: : image file images/v2_/0_1_鄒雪平.JPG is missing</message>
+   <message>ERROR: /cover.xhtml(19): 'images/v2_1/v2_1_cover.jpg': referenced resource is not declared in the OPF manifest.</message>
+   <message>ERROR: /toc.xhtml(25): 'intro': fragment identifier is not defined in 'bodymatter.xhtml'</message>
+   <message>ERROR: /toc.xhtml(489): 'rearnotes': fragment identifier is not defined in 'backmatter.xhtml'</message>
+   <message>ERROR: /toc.ncx(32): 'intro': fragment identifier is not defined in 'bodymatter.xhtml'</message>
+   <message>ERROR: /toc.ncx(599): 'rearnotes': fragment identifier is not defined in 'backmatter.xhtml'</message>
+   <message>ERROR: /introduction.xhtml(16): 'images/v2_1/鲍彤.jpg': referenced resource is not declared in the OPF manifest.</message>
+   <message>ERROR: /introduction.xhtml(30): 'images/v2_1/戴晴.jpg': referenced resource is not declared in the OPF manifest.</message>
+   <message>ERROR: /bodymatter.xhtml(24): 'images/v2_1/0_1_鄒雪平.JPG': referenced resource is not declared in the OPF manifest.</message>
+   <message>ERROR: /bodymatter.xhtml(34): 'images/v2_1/0_2_墓碑封面.jpg': referenced resource is not declared in the OPF manifest.</message>
+  </messages>
+  <mimeType>application/epub+zip</mimeType>
+  <properties>
+   <property><name>CharacterCount</name><values arity="Scalar" type="Long"><value>49073</value></values></property>
+   <property><name>Language</name><values arity="Scalar" type="String"><value>zh</value></values></property>
+   <property><name>Info</name><values arity="List" type="Property">
+    <property><name>Identifier</name><values arity="Scalar" type="String"><value>x</value></values></property>
+    <property><name>CreationDate</name><values arity="Scalar" type="Date"><value>2015-07-02T16:34:12Z</value></values></property>
+    <property><name>ModDate</name><values arity="Scalar" type="Date"><value>2015-07-02T20:34:12Z</value></values></property>
+    <property><name>Title</name><values arity="Scalar" type="String"><value>大饑荒</value></values></property>
+    <property><name>Creator</name><values arity="Scalar" type="String"><value>VOA</value></values></property>
+    <property><name>Date</name><values arity="Scalar" type="String"><value>2014-01-01T00:00:00Z</value></values></property>
+    <property><name>Publisher</name><values arity="Scalar" type="String"><value>明鏡出版社</value></values></property>
+   </values></property>
+   <property><name>Fonts</name><values arity="List" type="Property">
+    <property><name>Font</name><values arity="List" type="Property">
+     <property><name>FontName</name><values arity="Scalar" type="String"><value>Adobe Heiti Std</value></values></property>
+     <property><name>FontFile</name><values arity="Scalar" type="Boolean"><value>true</value></values></property>
+    </values></property>
+    <property><name>Font</name><values arity="List" type="Property">
+     <property><name>FontName</name><values arity="Scalar" type="String"><value>Adobe Heiti Std,bold</value></values></property>
+     <property><name>FontFile</name><values arity="Scalar" type="Boolean"><value>true</value></values></property>
+    </values></property>
+    <property><name>Font</name><values arity="List" type="Property">
+     <property><name>FontName</name><values arity="Scalar" type="String"><value>Hiragino Mincho Pro</value></values></property>
+     <property><name>FontFile</name><values arity="Scalar" type="Boolean"><value>true</value></values></property>
+    </values></property>
+    <property><name>Font</name><values arity="List" type="Property">
+     <property><name>FontName</name><values arity="Scalar" type="String"><value>Hiragino Mincho Pro,bold</value></values></property>
+     <property><name>FontFile</name><values arity="Scalar" type="Boolean"><value>true</value></values></property>
+    </values></property>
+   </values></property>
+  </properties>
+ </repInfo>
+</jhove>
