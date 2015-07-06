@@ -38,3 +38,4 @@ epubcheck-3.0.1
 
 # Ignore Webstorm folder
 /.idea/
+errors.xml
