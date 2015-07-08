@@ -32,7 +32,7 @@ book*
 # exclude tools for validating and compressing final epubs
 ePub Zip*
 epubcheck-3.0.1
-error.xml
+errors.xml
 
 #exclude rendered ebooks
 *.epub
