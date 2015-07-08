@@ -168,9 +168,9 @@ request(domain, function(error, response, html) {
         var currentBook = 1;
         //SET PHOTO NUMBER TO 2 IN ORDER TO SKIP THE INTRO PHOTOS LISTED AT TOP OF SPREADSHEET
         var photo_number = 0;
-        if (config.subfolders) {
+        /*if (config.subfolders) {
             photo_number = 2;
-        }
+        }*/
 
         //BEGIN DOWNLOADING PHOTOS ================================================================================
         function loopPhotos() {
@@ -216,19 +216,21 @@ request(domain, function(error, response, html) {
                         //COUNT DOWN BOOK NUMBER FROM PREVIOUS FUNCTION
                         currentBook--;
                         //RESET PHOTO NUMBER TO FIRST ROW IN SPREADSHEET
-                        photo_number = 0;
+                        photo_number = myData.length - 1;
 
                         //LOOP THROUGH FIRST TWO PHOTOS IN THE SPREADSHEET AND THROUGH IMAGE SUBFOLDERS
-                        for (photo_number; photo_number < 2; photo_number++) {
-                            if (photo_number < 2 && currentBook > -1) {
-                                subfolder = 'v2_' + (currentBook + 1) + '/';
+                        for (photo_number; photo_number > (myData.length - 3); photo_number--) {
+                            if (photo_number > (myData.length - 3) && currentBook > 0) {
+                                subfolder = 'v2_' + (currentBook) + '/';
                                 var source = domain + '/images/' + subfolder + encodeURIComponent(myData[photo_number].filename);
-                                var output = books[currentBook] + '/images/' + subfolder + myData[photo_number].filename;
-                                console.log('PHOTO NUMBER: ' + photo_number);
+                                var output = books[currentBook - 1] + '/images/' + subfolder + myData[photo_number].filename;
+                                //console.log('SOURCE: '+ source);
+                                //console.log('OUTPUT: '+ output);
+                                //process.exit(0);
 
                                 //DOWNLOAD INTRO PHOTOS
                                 download(source, output, function() {
-                                    console.log('INTRO PHOTOS SAVED FOR ' + subfolder);
+                                    //console.log('INTRO PHOTO SAVED FOR ' + subfolder);
                                     loopIntroPhotos();
                                 });
                             } else {
